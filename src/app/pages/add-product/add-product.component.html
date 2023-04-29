@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <form [formGroup]="newProduct" (submit)="handleSubmit()">
+    <div class="input-container">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+    <div class="input-container">
+      <label for="price">Price</label>
+      <input id="price" type="text" formControlName="price" />
+    </div>
+    <div class="input-container">
+      <label for="description">Description</label>
+      <input id="description" type="text" formControlName="description" />
+    </div>
+    <div class="file-container">
+      <p class="label">Image</p>
+      <label for="file">
+        <div class="box">
+          <div class="filename-box"></div>
+          <div class="upload-btn">Upload</div>
+        </div>
+      </label>
+      <input
+        id="file"
+        class="file"
+        type="file"
+        (change)="convertFileToBase64($event)"
+      />
+    </div>
+    <button type="submit" class="btn">Create Product</button>
+  </form>
+</div>
