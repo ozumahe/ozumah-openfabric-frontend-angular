@@ -11,41 +11,8 @@
 </div>
 <div>
   <div class="product-wrapper">
-    <div *ngFor="let product of products" class="product-card">
-      <img
-        src="https://images.unsplash.com/photo-1682616323647-5814207b8650?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-        alt="Im"
-        class="product-image"
-      />
-      <div class="product-content">
-        <div class="f-row">
-          <p class="product-name">Intelligent Finite</p>
-          <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu class="mat-menu" #menu="matMenu">
-            <div class="dropdown">
-              <div class="option">
-                <mat-icon>edit</mat-icon>
-                <p>Edit</p>
-              </div>
-              <div class="option">
-                <mat-icon>delete </mat-icon>
-                <p>Delete</p>
-              </div>
-            </div>
-          </mat-menu>
-        </div>
-        <p class="product-price">$ 300</p>
-        <p class="product-descrition">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-        </p>
-      </div>
+    <div *ngFor="let product of products">
+      <app-product-card></app-product-card>
     </div>
   </div>
 </div>
-<!-- <ul>
-  <li><a [routerLink]="['/product', 1]">Account 1</a></li>
-  <li><a [routerLink]="['/product', 2]">Account 2</a></li>
-  <li><a [routerLink]="['/product', 3]">Account 3</a></li>
-</ul> -->

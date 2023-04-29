@@ -6,6 +6,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent {
+  fileName: string = '';
+
   newProduct = new FormGroup({
     name: new FormControl(''),
     price: new FormControl(''),

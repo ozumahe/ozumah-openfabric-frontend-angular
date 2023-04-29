@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductDetailsComponent,
     ProductsComponent,
     AddProductComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
