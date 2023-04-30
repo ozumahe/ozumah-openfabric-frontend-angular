@@ -1,5 +1,26 @@
 <div class="wrapper">
   <form [formGroup]="newProduct" (submit)="handleSubmit()">
+    <div class="file-container">
+      <p class="label">Image</p>
+      <label for="file">
+        <div class="box">
+          <img
+            *ngIf="imgBase64"
+            [src]="'data:image/png;base64,' + imgBase64"
+            alt="Image"
+          />
+          <div *ngIf="!imgBase64" class="select">
+            <p>Click to Select</p>
+          </div>
+        </div>
+      </label>
+      <input
+        id="file"
+        class="file"
+        type="file"
+        (change)="convertFileToBase64($event)"
+      />
+    </div>
     <div class="input-container">
       <label for="name">Name</label>
       <input id="name" type="text" formControlName="name" />
@@ -12,21 +33,8 @@
       <label for="description">Description</label>
       <input id="description" type="text" formControlName="description" />
     </div>
-    <div class="file-container">
-      <p class="label">Image</p>
-      <label for="file">
-        <div class="box">
-          <div class="filename-box"></div>
-          <div class="upload-btn">Upload</div>
-        </div>
-      </label>
-      <input
-        id="file"
-        class="file"
-        type="file"
-        (change)="convertFileToBase64($event)"
-      />
+    <div>
+      <button type="submit" class="btn">Create Product</button>
     </div>
-    <button type="submit" class="btn">Create Product</button>
   </form>
 </div>
