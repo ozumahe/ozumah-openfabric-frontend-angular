@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     ProductsComponent,
     AddProductComponent,
     ProductCardComponent,
+    LogoComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

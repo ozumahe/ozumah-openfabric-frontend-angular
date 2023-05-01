@@ -19,5 +19,9 @@ body {
 }
 .mat-menu {
   background: #f9fafb;
-  border: 1px solid #272e71;
+  border: 1px solid #000;
+}
+
+.section {
+  max-width: 1440px;
 }

@@ -1,36 +1,3 @@
-.nav {
-  width: 100%;
-  height: 70px;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-bottom: 1px solid #272e71;
-  position: sticky;
-  top: 0;
-}
-
-.nav .title {
-  font-size: 30px;
-  font-weight: 600;
-  color: #272e71;
-}
-
-.btn {
-  background: #272e71;
-  width: 100px;
-  height: 40px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 p {
   padding: 0;
   margin: 0;

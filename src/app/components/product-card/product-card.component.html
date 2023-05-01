@@ -1,12 +1,14 @@
 <div class="product-card">
-  <img
-    [src]="'data:image/png;base64,' + product?.image"
-    alt="Im"
-    class="product-image"
-  />
+  <div class="product-container">
+    <img
+      [src]="'data:image/png;base64,' + product.image"
+      alt="Im"
+      class="product-image"
+    />
+  </div>
   <div class="product-content">
     <div class="f-row">
-      <p class="product-name">{{ product?.name }}</p>
+      <p class="product-name">{{ product.name }}</p>
       <button mat-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
       </button>
@@ -23,9 +25,13 @@
         </div>
       </mat-menu>
     </div>
-    <p class="product-price">${{ product?.price }}</p>
+    <p class="product-price">${{ product.price }}</p>
     <p class="product-descrition">
-      {{ product?.description }}
+      {{
+        product.description.length > 70
+          ? product.description.substring(0, 70) + "..."
+          : product.description
+      }}
     </p>
   </div>
 </div>
