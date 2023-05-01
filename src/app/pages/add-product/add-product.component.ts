@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ProductService } from 'src/app/services/product/product.service';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css'],
+  providers: [ProductService],
 })
 export class AddProductComponent implements OnInit {
+  constructor(public productsService: ProductService) {}
+
   newProduct = new FormGroup({
     name: new FormControl(''),
-    price: new FormControl(''),
+    price: new FormControl(0),
     description: new FormControl(''),
   });
 
@@ -20,6 +24,10 @@ export class AddProductComponent implements OnInit {
 
   handleSubmit() {
     console.log({ ...this.newProduct.value, image: this.imgBase64 });
+    this.productsService.createProduct({
+      ...this.newProduct.value,
+      image: this.imgBase64,
+    });
   }
 
   convertFileToBase64(evt: any) {

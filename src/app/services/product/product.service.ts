@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import apiCall from '../utils/axois';
-import { Product } from '../utils/types';
+import apiCall from '../../utils/axois';
+import { Product } from '../../utils/types';
 
 type Products = {
   count: number;
@@ -20,8 +20,20 @@ export class ProductService {
       const res = await apiCall('GET', '/product/');
       if (res.status === 200) {
         this.products = res.data;
-        console.log(res);
       }
     } catch (e) {}
+  }
+
+  async createProduct(data: any) {
+    try {
+      const res = await apiCall('POST', '/product/', data);
+      if (res.status === 201) {
+        console.log(res);
+
+        this.getAllProducts();
+      }
+    } catch (e: any) {
+      alert(e.response.data.msg);
+    }
   }
 }

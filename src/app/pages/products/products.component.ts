@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/services/product/product.service';
 import apiCall from 'src/app/utils/axois';
 
 @Component({
