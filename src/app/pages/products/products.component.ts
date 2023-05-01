@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ProductService } from 'src/app/services/product.service';
+import apiCall from 'src/app/utils/axois';
 
 @Component({
   selector: 'app-products',
@@ -8,8 +9,10 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./products.component.css'],
   providers: [ProductService],
 })
-export class ProductsComponent {
-  constructor(private productsService: ProductService) {}
+export class ProductsComponent implements OnInit {
+  constructor(public productsService: ProductService) {}
 
-  products = this.productsService.products;
+  ngOnInit(): void {
+    this.productsService.getAllProducts();
+  }
 }

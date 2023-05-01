@@ -6,6 +6,10 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: ProductsComponent,
+  },
+  {
     path: 'products',
     component: ProductsComponent,
   },
