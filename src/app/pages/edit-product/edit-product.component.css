@@ -38,11 +38,37 @@
   margin-top: 40px;
 }
 
-.product-descrition {
+.product-description {
+  width: 100%;
   font-size: 18px;
   color: #6b7280;
   font-weight: 400;
   margin-top: 40px;
+  padding: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+}
+
+.btn {
+  max-width: 430px;
+  width: 100%;
+  margin: 20px auto;
+  height: 55px;
+  background: #000;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 200px;
+}
+
+.file {
+  display: none;
 }
 
 @media (min-width: 600px) {

@@ -58,6 +58,5 @@ export class AddProductComponent implements OnInit {
   setBase64(readerEvt: any) {
     var binaryString = readerEvt.target.result;
     this.imgBase64 = btoa(binaryString);
-    console.log(btoa(binaryString));
   }
 }
