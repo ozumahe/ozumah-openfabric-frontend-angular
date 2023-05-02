@@ -21,4 +21,8 @@ export class ProductCardComponent {
   viewProduct(id: string) {
     this.router.navigate(['/product', id]);
   }
+
+  editProduct(id: string) {
+    this.router.navigate(['/edit-product', id]);
+  }
 }

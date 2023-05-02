@@ -14,7 +14,7 @@
       </button>
       <mat-menu class="mat-menu" #menu="matMenu">
         <div class="dropdown">
-          <div class="option">
+          <div class="option" (click)="editProduct(product.id)">
             <mat-icon>edit</mat-icon>
             <p>Edit</p>
           </div>
