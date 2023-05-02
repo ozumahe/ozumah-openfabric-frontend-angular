@@ -23,4 +23,14 @@ export class ProductService {
       }
     } catch (e) {}
   }
+
+  async deleteProduct(id: string) {
+    try {
+      const res = await apiCall('DELETE', `/product/${id}`);
+      if (res.status === 200) {
+        location.reload();
+        alert('Success');
+      }
+    } catch (e) {}
+  }
 }
