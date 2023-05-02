@@ -33,4 +33,13 @@ export class ProductService {
       }
     } catch (e) {}
   }
+
+  async getSingleProduct(id: string) {
+    try {
+      const res = await apiCall('GET', `/product/${id}`);
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (e) {}
+  }
 }

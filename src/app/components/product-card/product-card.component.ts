@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Product } from 'src/app/utils/types';
 
@@ -9,11 +10,15 @@ import { Product } from 'src/app/utils/types';
   providers: [ProductService],
 })
 export class ProductCardComponent {
-  constructor(public productService: ProductService) {}
+  constructor(public productService: ProductService, private router: Router) {}
   @Input()
   product!: Product;
 
   handeleDelete(id: string) {
     this.productService.deleteProduct(id);
+  }
+
+  viewProduct(id: string) {
+    this.router.navigate(['/product', id]);
   }
 }
