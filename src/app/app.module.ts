@@ -9,11 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { NavComponent } from './components/nav/nav.component';
+import { LogInDialog, NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NavComponent } from './components/nav/nav.component';
     ProductCardComponent,
     LogoComponent,
     NavComponent,
+    LogInDialog,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { NavComponent } from './components/nav/nav.component';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
+    MatDialogModule,
     ReactiveFormsModule,
   ],
   providers: [],

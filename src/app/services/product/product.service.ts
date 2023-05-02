@@ -23,17 +23,4 @@ export class ProductService {
       }
     } catch (e) {}
   }
-
-  async createProduct(data: any) {
-    try {
-      const res = await apiCall('POST', '/product/', data);
-      if (res.status === 201) {
-        console.log(res);
-
-        this.getAllProducts();
-      }
-    } catch (e: any) {
-      alert(e.response.data.msg);
-    }
-  }
 }

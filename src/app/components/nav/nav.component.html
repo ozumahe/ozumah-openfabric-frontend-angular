@@ -5,8 +5,15 @@
         <app-logo></app-logo>
       </a>
     </div>
-    <a *ngIf="this.authService.user" [routerLink]="['/add-product']">
+    <a *ngIf="this.authService.userData" [routerLink]="['/add-product']">
       <button class="btn">Add Product</button>
     </a>
+    <button
+      *ngIf="!this.authService.userData"
+      class="btn"
+      (click)="openDialog()"
+    >
+      log in
+    </button>
   </div>
 </div>

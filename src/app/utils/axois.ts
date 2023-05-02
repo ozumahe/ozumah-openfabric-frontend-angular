@@ -9,6 +9,14 @@ const apiCall = async (
   method: Method,
   url: string,
   data?: {}
-): Promise<AxiosResponse> => await axios({ method, url, data });
+): Promise<AxiosResponse> =>
+  await axios({
+    method,
+    url,
+    data,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  });
 
 export default apiCall;
