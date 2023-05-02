@@ -1,7 +1,8 @@
 import axios from 'axios';
 import type { Method, AxiosResponse } from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:5000/api/v1';
+axios.defaults.baseURL =
+  'https://ozumah-backend-openfabric-test.onrender.com/api/v1';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
