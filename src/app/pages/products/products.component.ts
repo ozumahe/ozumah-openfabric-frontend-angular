@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 import { ProductService } from 'src/app/services/product/product.service';
 import apiCall from 'src/app/utils/axois';
@@ -10,7 +11,10 @@ import apiCall from 'src/app/utils/axois';
   providers: [ProductService],
 })
 export class ProductsComponent implements OnInit {
-  constructor(public productsService: ProductService) {}
+  constructor(
+    public productsService: ProductService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.productsService.getAllProducts();

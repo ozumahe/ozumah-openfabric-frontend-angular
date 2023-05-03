@@ -3,11 +3,27 @@ p {
   margin: 0;
 }
 
+.info {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
 .product-wrapper {
-  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
   gap: 30px;
   padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .product-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

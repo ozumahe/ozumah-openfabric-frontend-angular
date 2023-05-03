@@ -88,3 +88,9 @@ button {
   color: #6b7280;
   font-weight: 400;
 }
+
+@media (max-width: 600px) {
+  .product-card {
+    max-width: 100%;
+  }
+}
