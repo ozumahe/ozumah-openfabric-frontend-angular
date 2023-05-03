@@ -1,27 +1,66 @@
-# Frontend
+# INSTRUCTIONS to Deploying Angular app to Heroku
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+- ## Configuring Angular App
 
-## Development server
+  - ### Step 1: ` Ensure you have the latest version of angular CLI and angular compiler cli`
+  - ### Step 2: ` Copy below dependencies from devDependencies to dependencies`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  ```
+   "@angular/cli": "^11.0.2",
 
-## Code scaffolding
+    "@angular/compiler-cli": "^10.0.14",
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    "typescript": "~3.9.5"
+  ```
 
-## Build
+  - ### Step 3: `Create heroku-postbuild script in package.json. Under “scripts”, add a “heroku-postbuild” command as seen below`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  ```
+  "heroku-postbuild": "ng build --prod"
+  ```
 
-## Running unit tests
+  - ### Step 4: `Add Node and NPM version on the package.json engines`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  ```
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.5"
+  }
+  ```
 
-## Running end-to-end tests
+  - ### Step 5: `Install Server to run your app`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  ```
+  npm install express path --save
+  ```
 
-## Further help
+  - ### Step 6: `Create a main.js file in the root of the application and paste the following code.`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  ```
+  //Install express server
+  const express = require('express');
+  const path = require('path');
+
+
+    const app = express();
+
+    // Serve only the static files form the dist directory
+    app.use(express.static('./dist/angular-app-heroku'));
+
+    app.get('/\*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/angular-app-heroku/'}),
+    );
+
+    // Start the app by listening on the default Heroku port
+    app.listen(process.env.PORT || 8080);
+  ```
+
+  - ### Step 7: `Change start command In package.json, change the “start” command to node server.js so it becomes`
+
+  ```
+  "start": "node main.js"
+  ```
+
+- ## Host source code of Angular App on GitHub
+- ## Login to Heroku and create a new app in Heroku
+- ## Connecting GitHub repository to Heroku app
