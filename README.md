@@ -1,4 +1,6 @@
-# INSTRUCTIONS to Deploying Angular app to Heroku
+# Author `Ozumah Ebenezer`
+
+# Step By Step INSTRUCTIONS on Deploying Angular app to Heroku
 
 - ## Configuring Angular App
 
