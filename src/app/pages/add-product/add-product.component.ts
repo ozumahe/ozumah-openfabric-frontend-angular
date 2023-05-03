@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product/product.service';
 import apiCall from 'src/app/utils/axois';
@@ -13,9 +13,12 @@ export class AddProductComponent implements OnInit {
   constructor(public productsService: ProductService, private router: Router) {}
 
   newProduct = new FormGroup({
-    name: new FormControl(''),
-    price: new FormControl(0),
-    description: new FormControl(''),
+    name: new FormControl('', [Validators.required]),
+    price: new FormControl(0, [Validators.required]),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(1000),
+    ]),
   });
 
   fileName: string = '';
@@ -23,6 +26,18 @@ export class AddProductComponent implements OnInit {
   isRequest: boolean = false;
 
   ngOnInit(): void {}
+
+  get name(): any {
+    return this.newProduct.get('name');
+  }
+
+  get price(): any {
+    return this.newProduct.get('price');
+  }
+
+  get description(): any {
+    return this.newProduct.get('description');
+  }
 
   navToHome() {
     this.router.navigate(['/']);

@@ -24,14 +24,34 @@
     <div class="input-container">
       <label for="name">Name</label>
       <input id="name" type="text" formControlName="name" />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <p *ngIf="name.errors?.['required']">Name is required</p>
+      </div>
     </div>
     <div class="input-container">
       <label for="price">Price</label>
       <input id="price" type="number" formControlName="price" />
+      <div
+        *ngIf="price.invalid && (price.dirty || price.touched)"
+        class="alert"
+      >
+        <p *ngIf="price.errors?.['required']">Price is required</p>
+      </div>
     </div>
     <div class="input-container">
       <label for="description">Description</label>
       <input id="description" type="text" formControlName="description" />
+      <div
+        *ngIf="
+          description.invalid && (description.dirty || description.touched)
+        "
+        class="alert"
+      >
+        <p *ngIf="description.errors?.['required']">Description is required</p>
+        <p *ngIf="description.errors?.['maxlength']">
+          Discription can not be more than 1000 characters
+        </p>
+      </div>
     </div>
     <div>
       <button type="submit" class="btn">Create Product</button>

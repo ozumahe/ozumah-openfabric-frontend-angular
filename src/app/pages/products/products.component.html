@@ -1,7 +1,8 @@
 <div>
-  <p *ngIf="!authService.userData" class="info">
+  <p *ngIf="!this.authService.userData" class="info">
     Sign Up or Log In to Create Product
   </p>
+
   <div class="product-wrapper">
     <div *ngFor="let product of this.productsService.products.data">
       <app-product-card [product]="product"></app-product-card>
