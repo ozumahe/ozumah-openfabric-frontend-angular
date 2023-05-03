@@ -26,7 +26,12 @@
   outline: none;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 20px;
+}
+
+.input-container .alert p {
+  color: #f00;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .submit-btn {

@@ -56,6 +56,7 @@ export class SignUpComponent implements OnInit {
         }
       } catch (e: any) {
         alert(e.response.data.msg);
+        this.isRequesting = false;
       }
     }
   }

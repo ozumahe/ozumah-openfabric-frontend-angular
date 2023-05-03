@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import apiCall from 'src/app/utils/axois';
 
 @Component({
@@ -20,8 +20,11 @@ export class LogInComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  email = new FormControl('');
-  password = new FormControl('');
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+  ]);
   isRequesting: boolean = false;
 
   onClose(): void {
