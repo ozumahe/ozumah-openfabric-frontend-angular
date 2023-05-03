@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -20,10 +20,13 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  email = new FormControl('');
-  name = new FormControl('');
+  email = new FormControl('', [Validators.required, Validators.email]);
+  name = new FormControl('', [Validators.required]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+  ]);
   role: string = '';
-  password = new FormControl('');
   isRequesting: boolean = false;
 
   onClose(): void {
@@ -38,7 +41,7 @@ export class SignUpComponent implements OnInit {
           email: this.email.value,
           password: this.password.value,
           name: this.name.valid,
-          role: this.role,
+          role: this.role ? this.role : 'user',
         });
         if (res.status === 201) {
           this.isRequesting = false;
@@ -51,8 +54,8 @@ export class SignUpComponent implements OnInit {
           location.reload();
           this.router.navigate(['/']);
         }
-      } catch (e) {
-        console.log(e);
+      } catch (e: any) {
+        alert(e.response.data.msg);
       }
     }
   }

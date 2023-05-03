@@ -3,15 +3,31 @@
   <div class="input-container">
     <label for="email">Email</label>
     <input id="email" type="text" [formControl]="email" />
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+      <p *ngIf="email.errors?.['required']">Email is required</p>
+      <p *ngIf="email.errors?.['email']">Provide a valid email</p>
+    </div>
   </div>
   <div class="input-container">
     <label for="name">Name</label>
     <input id="name" type="text" [formControl]="name" />
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+      <p *ngIf="name.errors?.['required']">Name is required</p>
+    </div>
   </div>
 
   <div class="input-container">
     <label for="password">Password</label>
     <input id="password" type="text" [formControl]="password" />
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="alert"
+    >
+      <p *ngIf="password.errors?.['required']">Password is required</p>
+      <p *ngIf="password.errors?.['minlength']">
+        Password must not be less than 8
+      </p>
+    </div>
   </div>
   <div class="input-container">
     <mat-form-field class="mat-form-field" appearance="fill">

@@ -46,8 +46,8 @@ export class LogInComponent implements OnInit {
           location.reload();
           this.router.navigate(['/']);
         }
-      } catch (e) {
-        console.log(e);
+      } catch (e: any) {
+        alert(e.response.data.msg);
       }
     }
   }
