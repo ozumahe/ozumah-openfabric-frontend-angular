@@ -5,15 +5,55 @@
         <app-logo></app-logo>
       </a>
     </div>
-    <a *ngIf="this.authService.userData" [routerLink]="['/add-product']">
-      <button class="btn">Add Product</button>
-    </a>
-    <button
-      *ngIf="!this.authService.userData"
-      class="btn"
-      (click)="openDialog()"
-    >
-      log in
-    </button>
+    <mat-icon class="menu" mat-button [matMenuTriggerFor]="menu">menu</mat-icon>
+    <mat-menu class="mat-menu" #menu="matMenu">
+      <div
+        class="option"
+        *ngIf="!this.authService.userData"
+        (click)="openLogInDialog()"
+      >
+        <mat-icon> login </mat-icon>
+        Log In
+      </div>
+      <div
+        class="option"
+        *ngIf="!this.authService.userData"
+        (click)="openSignUpDialog()"
+      >
+        <mat-icon> app_registration </mat-icon>
+        Sign up
+      </div>
+      <div
+        class="option"
+        *ngIf="this.authService.userData"
+        [routerLink]="['/add-product']"
+      >
+        <mat-icon> add </mat-icon>
+        Add Product
+      </div>
+      <div class="option" *ngIf="this.authService.userData">
+        <mat-icon> logout </mat-icon>
+        Log Out
+      </div>
+    </mat-menu>
+    <div class="nav-right">
+      <a *ngIf="this.authService.userData" [routerLink]="['/add-product']">
+        <button class="btn">Add Product</button>
+      </a>
+      <button
+        class="btn"
+        *ngIf="!this.authService.userData"
+        (click)="openLogInDialog()"
+      >
+        Log In
+      </button>
+      <button
+        class="btn"
+        *ngIf="!this.authService.userData"
+        (click)="openSignUpDialog()"
+      >
+        Sign Up
+      </button>
+    </div>
   </div>
 </div>

@@ -8,6 +8,8 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import apiCall from 'src/app/utils/axois';
+import { SignUpComponent } from '../sign-up/sign-up.component';
+import { LogInComponent } from '../log-in/log-in.component';
 
 @Component({
   selector: 'app-nav',
@@ -22,59 +24,19 @@ export class NavComponent implements OnInit {
     this.authService.checkAuth();
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(LogInDialog, {
+  openLogInDialog(): void {
+    const dialogRef = this.dialog.open(LogInComponent, {
       maxWidth: '500px',
       width: '100%',
       height: '400px',
     });
   }
-}
 
-@Component({
-  selector: 'login-dialog',
-  templateUrl: 'login-dialog.html',
-  styleUrls: ['./nav.component.css'],
-  providers: [AuthService],
-})
-export class LogInDialog implements OnInit {
-  constructor(
-    public dialogRef: MatDialogRef<LogInDialog>,
-    private authService: AuthService,
-    private router: Router
-  ) {}
-
-  ngOnInit(): void {}
-
-  email = new FormControl('');
-  password = new FormControl('');
-
-  onClose(): void {
-    this.dialogRef.close();
-  }
-
-  async handleLoginSubmit() {
-    console.log(this.email.value, this.password.value);
-
-    if (this.email.value && this.password.value) {
-      try {
-        const res = await apiCall('POST', '/auth/log-in', {
-          email: this.email.value,
-          password: this.password.value,
-        });
-        if (res.status === 200) {
-          console.log(res.data);
-          localStorage.setItem('user', JSON.stringify(res.data.user));
-          localStorage.setItem('token', res.data.token);
-
-          this.authService.checkAuth();
-          this.onClose();
-          location.reload();
-          this.router.navigate(['/']);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    }
+  openSignUpDialog(): void {
+    const dialogRef = this.dialog.open(SignUpComponent, {
+      maxWidth: '500px',
+      width: '100%',
+      minHeight: '400px',
+    });
   }
 }

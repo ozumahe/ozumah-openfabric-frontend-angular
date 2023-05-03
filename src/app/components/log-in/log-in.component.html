@@ -1,4 +1,6 @@
 <div class="dialog-wrapper">
+  <p class="form-label">Sign In</p>
+
   <div class="input-container">
     <label for="email">Email</label>
     <input id="email" type="text" [formControl]="email" />
@@ -7,7 +9,15 @@
     <label for="password">Password</label>
     <input id="password" type="text" [formControl]="password" />
   </div>
-  <button type="button" class="submit-btn" (click)="handleLoginSubmit()">
-    Sign In
+  <button
+    [disabled]="isRequesting"
+    type="button"
+    class="submit-btn"
+    (click)="handleLoginSubmit()"
+  >
+    <div *ngIf="isRequesting" class="spinner-con">
+      <mat-icon>looks</mat-icon>
+    </div>
+    <p *ngIf="!isRequesting">Submit</p>
   </button>
 </div>

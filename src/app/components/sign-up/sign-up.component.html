@@ -1,0 +1,31 @@
+<div class="dialog-wrapper">
+  <p class="form-label">Sign Up</p>
+  <div class="input-container">
+    <label for="email">Email</label>
+    <input id="email" type="text" [formControl]="email" />
+  </div>
+  <div class="input-container">
+    <label for="name">Name</label>
+    <input id="name" type="text" [formControl]="name" />
+  </div>
+
+  <div class="input-container">
+    <label for="password">Password</label>
+    <input id="password" type="text" [formControl]="password" />
+  </div>
+  <div class="input-container">
+    <mat-form-field class="mat-form-field" appearance="fill">
+      <mat-label>Role</mat-label>
+      <mat-select [(value)]="role">
+        <mat-option value="admin"> Admin </mat-option>
+        <mat-option value="user"> User </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button type="button" class="submit-btn" (click)="handleSignUpSubmit()">
+    <div *ngIf="isRequesting" class="spinner-con">
+      <mat-icon>looks</mat-icon>
+    </div>
+    <p *ngIf="!isRequesting">Submit</p>
+  </button>
+</div>
