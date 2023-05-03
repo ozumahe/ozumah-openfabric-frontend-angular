@@ -44,6 +44,16 @@ export class AddProductComponent implements OnInit {
   }
 
   async handleSubmit() {
+    if (
+      !this.imgBase64 ||
+      !this.newProduct.value.name ||
+      !this.newProduct.value.price ||
+      !this.newProduct.value.description
+    ) {
+      alert('Please Provide Required Inputs');
+      return;
+    }
+
     try {
       const res = await apiCall('POST', '/product/', {
         ...this.newProduct.value,
