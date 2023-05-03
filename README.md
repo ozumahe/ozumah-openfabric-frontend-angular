@@ -55,7 +55,7 @@
     app.listen(process.env.PORT || 8080);
   ```
 
-  - ### Step 7: `Change start command In package.json, change the “start” command to node server.js so it becomes`
+  - ### Step 7: `Change start command In package.json, change the “start” command to node main.js so it becomes`
 
   ```
   "start": "node main.js"
